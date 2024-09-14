@@ -6,7 +6,7 @@ const domain = process.env.NEXT_APP_URL
 export async function sendVerificationEmail(email: string, token: string) {
   const confirmLink = `${domain}/auth/new-verfication?token=${token}`
   await resend.emails.send({
-    from: 'Next-Auth <onboarding@resend.dev>',
+    from: 'Next-Auth <info@ronosu.space>',
     to: email,
     subject: 'Confirm your email',
     html: `<p>Click <a href="${confirmLink}">here</a></p>`
@@ -16,7 +16,7 @@ export async function sendVerificationEmail(email: string, token: string) {
 export const sendPasswordResetEmail = async (email: string, token: string)=>{
   const resetLink = `${domain}/auth/new-password?token=${token}`
   await resend.emails.send({
-    from: 'Next-Auth <onboarding@resend.dev>',
+    from: 'Next-Auth <info@ronosu.space>',
     to: email,
     subject: 'Reset  your password',
     html: `<p>Click <a href="${resetLink}">here</a></p>`
@@ -25,7 +25,7 @@ export const sendPasswordResetEmail = async (email: string, token: string)=>{
 
 export const sendTwoFactorTokenEmail = async (email: string, token: string)=>{
   await resend.emails.send({
-    from: 'Next-Auth <onboarding@resend.dev>',
+    from: 'Next-Auth <info@ronosu.space>',
     to: email,
     subject: '2FA Code',
     html: `<p>Your 2FA code:   ${token}</p>`
